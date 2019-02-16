@@ -32,43 +32,35 @@
     <script type="text/javascript">
 $.getJSON( "test.json", function( data ) {
   var items = [];
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-    $("#msgid").html("This is Hello World by JQuery"+key);
-  });
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "tmptest1" );
-});
-
-$(document).ready(function(){
   var htmlContent = ""; 
- for (i=1;i<=26;i++) {  
- var imgId = i;
-if(i <10){
-  imgId="0"+i;
-}
+  var i=1;
+  $.each( data, function( key, val ) {
+    var imgId = i;
+    if(i <10){
+      imgId="0"+i;
+    }
 
-htmlContent+="<div class=\"col-md-4 col-sm-6 portfolio-item\">";
+    htmlContent+="<div class=\"col-md-4 col-sm-6 portfolio-item\">";
     htmlContent+="          <a class=\"portfolio-link\" data-toggle=\"modal\" href=\"#portfolioModal"+i+"\">";
-        htmlContent+="            <div class=\"portfolio-hover\">";
-            htmlContent+="              <div class=\"portfolio-hover-content\">";
-htmlContent+="<i class=\"fas fa-plus fa-3x\"></i>";
-htmlContent+="</div>";
-htmlContent+="</div>";
-htmlContent+="<img class=\"img-fluid\" src=\"img/portfolio/"+imgId+"-thumbnail.jpg\" alt=\"\">";
-htmlContent+="</a>";
-htmlContent+="<div class=\"portfolio-caption\">";
+    htmlContent+="            <div class=\"portfolio-hover\">";
+    htmlContent+="              <div class=\"portfolio-hover-content\">";
+    htmlContent+="<i class=\"fas fa-plus fa-3x\"></i>";
+    htmlContent+="</div>";
+    htmlContent+="</div>";
+    htmlContent+="<img class=\"img-fluid\" src=\"img/portfolio/"+imgId+"-thumbnail.jpg\" alt=\"\">";
+    htmlContent+="</a>";
+    htmlContent+="<div class=\"portfolio-caption\">";
     htmlContent+="<h4>Realistic Eye</h4>";
     htmlContent+="<p class=\"text-muted\">This is the hardest shading that I did.</p>";
     htmlContent+="</div>";
     htmlContent+="</div>";
-
-}
-document.getElementById("tmptest1").innerHTML += htmlContent;
+    i++;
+  });
+ 
+  document.getElementById("tmptest1").innerHTML += htmlContent;
 });
+
+
       
       </script>
       <div id="msgid">
